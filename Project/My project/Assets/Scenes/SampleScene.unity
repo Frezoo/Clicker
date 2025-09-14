@@ -428,8 +428,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 705366799}
-  - component: {fileID: 705366798}
-  - component: {fileID: 705366797}
   - component: {fileID: 705366800}
   m_Layer: 0
   m_Name: GameManager
@@ -438,32 +436,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &705366797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705366796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5191de6b9fa5db4babeef964c4369da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickLogic: {fileID: 705366798}
---- !u!114 &705366798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705366796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5afb0ef3d8ab96b4cb2da8b1b1c4dda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCarType: 0
 --- !u!4 &705366799
 Transform:
   m_ObjectHideFlags: 0
@@ -491,6 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07379c3bd516f24ab92484ab134e734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerCarType: 2
 --- !u!1 &979240940
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +578,7 @@ GameObject:
   - component: {fileID: 1059883642}
   - component: {fileID: 1059883641}
   m_Layer: 0
-  m_Name: 1757789596_imgupscaler.ai_Upscaler_2K_0
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,6 +667,8 @@ GameObject:
   - component: {fileID: 1852515380}
   - component: {fileID: 1852515379}
   - component: {fileID: 1852515382}
+  - component: {fileID: 1852515383}
+  - component: {fileID: 1852515384}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -764,7 +739,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 705366798}
+      - m_Target: {fileID: 2072585881}
         m_TargetAssemblyTypeName: ClickLogic, Assembly-CSharp
         m_MethodName: ClickHandler
         m_Mode: 1
@@ -779,6 +754,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1852515382}
         m_TargetAssemblyTypeName: ClickVisual, Assembly-CSharp
         m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1852515384}
+        m_TargetAssemblyTypeName: ClickSound, Assembly-CSharp
+        m_MethodName: PlayAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -840,6 +827,120 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wiggleAmplitude: 2
   wiggleSpeed: 1.2
+  CarsImages:
+  - {fileID: 8128694035744740041, guid: 1f48b62ee1311a545b8ad40d7a9c58d8, type: 3}
+  - {fileID: 7469279465385097726, guid: 77ad42e6ed0b7be4bb8d3949614ba292, type: 3}
+  - {fileID: -5051110954758403675, guid: d2118b7c5edaa8547889d758767595ef, type: 3}
+  ButtonImage: {fileID: 0}
+--- !u!82 &1852515383
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852515377}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d07bbdb44758cff40ac4a04a1a90ab69, type: 3}
+  m_Resource: {fileID: 8300000, guid: d07bbdb44758cff40ac4a04a1a90ab69, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1852515384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852515377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d41beadfe323c8459371ef122e200e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2044981367
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +980,64 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.88659, y: 5.42371, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2072585879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072585882}
+  - component: {fileID: 2072585881}
+  - component: {fileID: 2072585880}
+  m_Layer: 0
+  m_Name: GameSceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2072585880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072585879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5191de6b9fa5db4babeef964c4369da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickLogic: {fileID: 2072585881}
+--- !u!114 &2072585881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072585879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afb0ef3d8ab96b4cb2da8b1b1c4dda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2072585882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072585879}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.78617, y: -0.33124, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1029,5 +1188,6 @@ SceneRoots:
   - {fileID: 1059883642}
   - {fileID: 979240944}
   - {fileID: 181609506}
-  - {fileID: 705366799}
+  - {fileID: 2072585882}
   - {fileID: 2044981369}
+  - {fileID: 705366799}
