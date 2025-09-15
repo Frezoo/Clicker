@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour
     private ClickLogic clickLogic;
 
     
-    private int score;
+    public int Score;
     
     public enum CarType 
     {
@@ -41,7 +42,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         
-       
     }
 
     private void Update()
@@ -61,7 +61,9 @@ public class GameManager : MonoBehaviour
             clickLogic = GameObject.Find("GameSceneManager").GetComponent<ClickLogic>();
             
             clickLogic.Clicked += UpdateScore;
-            score = SaveManager.Instance != null ? SaveManager.Instance.LoadScore() : 0;
+            Score = SaveManager.Instance != null ? SaveManager.Instance.LoadScore() : 0;
+            
+            PlayerCarType = (CarType)SaveManager.Instance.LoadCarType();
             
             Debug.Log(clickLogic);
         }
@@ -70,11 +72,11 @@ public class GameManager : MonoBehaviour
     private void UpdateScore(int clickValue)
     {
         Debug.Log($"Score updated by {clickValue}");
-        score += clickValue;
-        SaveManager.Instance.SaveScore(score);
+        Score += clickValue;
+        SaveManager.Instance.SaveScore(Score);
 
         Debug.Log("Update");
-        UpdateUserInterface?.Invoke(score);
+        UpdateUserInterface?.Invoke(Score);
     }
     
     private void OnDisable()
@@ -84,5 +86,10 @@ public class GameManager : MonoBehaviour
             clickLogic.Clicked -= UpdateScore;
         }
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnApplicationQuit()
+    {
+        SaveManager.Instance.SaveCarType();
     }
 }
